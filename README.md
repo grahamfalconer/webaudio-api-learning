@@ -1,0 +1,2 @@
+# quickfix-ultrawide
+quickfix ultrawide
