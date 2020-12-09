@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Audio API Learning</title>
+</head>
+<body>
+  <h1> Grahams Web Audio API learning </h1>
+</body>
+<script>
+  var audioContext = new AudioContext();
+  var filter = audioContext.createBiquadFilter();
+  var oscillator = audioContext.createOscillator();
+
+  oscillator.connect(filter)
+  filter.connect(audioContext.destination)
+
+  oscillator.start(audioContext.currentTime)
+
+</script>
+</html>
