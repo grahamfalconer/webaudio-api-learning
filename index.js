@@ -31,7 +31,11 @@ function createAudioContext() {
     splitter.connect(merger, 1)
     merger.connect(context.destination)
   })
-  myAudio.onclick = context.resume()
+
+  setTimeout(() => {
+    context.resume()
+    
+  }, 2500);
 }
 
 
