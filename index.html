@@ -3,20 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Web Audio API Learning</title>
+  <link rel="stylesheet" href="index.css">
+  <title> Web Audio API Learning </title>
 </head>
 <body>
-  <h1> Grahams Web Audio API learning </h1>
+  <audio controls id="my-audio" src="audio/Squirrel Nut Zippers - Trou Macacq.mp3"></audio>
+  <button id="swap-left-button"> Swap to left channel </button>
+  <button id="swap-right-button"> Swap to right channel </button>
 </body>
 <script>
-  var audioContext = new AudioContext();
-  var filter = audioContext.createBiquadFilter();
-  var oscillator = audioContext.createOscillator();
+"use strict";
 
-  oscillator.connect(filter)
-  filter.connect(audioContext.destination)
+// Setting up
+const myAudio = document.getElementById("my-audio")
+const context = new AudioContext()
+const audioSource = context.createMediaElementSource(myAudio)
 
-  oscillator.start(audioContext.currentTime)
+// Create 2 channel splitter (Left and Right)
+const splitter = context.createChannelSplitter(2)
+
+// Connecting source to splitter
+audioSource.connect(splitter)
+
+// Creating merger node
+const merger = context.createChannelMerger(1)
+
+// Connecting the right channel from splitter to merger
+splitter.connect(merger, 1)
+
+// Connect merger to destination (speakers)
+merger.connect(context.destination)
+
+// Adding event listeners
+let leftButton = document.getElementById('swap-left-button')
+let rightButton = document.getElementById('swap-right-button')
+
+leftButton.addEventListener("click", (event) => {
+  splitter.disconnect(merger, 1)
+  splitter.connect(merger, 0)
+  merger.connect(context.destination)
+})
+
+rightButton.addEventListener("click", (event) => {
+  splitter.disconnect(merger, 0)
+  splitter.connect(merger, 1)
+  merger.connect(context.destination)
+})
+
+//splitter.disconnect < -----
+
 
 </script>
 </html>
