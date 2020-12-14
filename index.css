@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+  background-color: lightcoral;
+}
+
+audio {
+  display: inline-block;
+  margin-top: 40vh;
+  width: 90%;
+}
+
+button {
+  display: inline-block;
+  width: 30%;
+  height: 4vh;
+  border-radius: 20vw;
+}
