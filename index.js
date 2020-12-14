@@ -34,9 +34,7 @@ function createAudioContext() {
 }
 
 document.body.addEventListener('click', (event) => {
+  createAudioContext()
   context.resume()
 })
 
-
-
-document.onload = createAudioContext()
