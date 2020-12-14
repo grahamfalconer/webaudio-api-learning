@@ -31,12 +31,11 @@ function createAudioContext() {
     splitter.connect(merger, 1)
     merger.connect(context.destination)
   })
-
-  // setTimeout(() => {
-  //   context.resume()
-    
-  // }, 2500);
 }
+
+document.body.addEventListener('click', (event) => {
+  context.resume()
+})
 
 
 
