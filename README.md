@@ -3,4 +3,6 @@
 
 A small side project completed in order to practice using the web audio api and splitting channels.
 
+<img src="readme_images/Screenshot 2020-12-14 at 17.54.24.png">
+
 <a>Deployed <a href="https://grahamsaudiosplitter.netlify.app/">here</a></a>
