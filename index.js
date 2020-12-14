@@ -32,10 +32,10 @@ function createAudioContext() {
     merger.connect(context.destination)
   })
 
-  setTimeout(() => {
-    context.resume()
+  // setTimeout(() => {
+  //   context.resume()
     
-  }, 2500);
+  // }, 2500);
 }
 
 
